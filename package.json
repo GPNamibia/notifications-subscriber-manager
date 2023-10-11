@@ -3,11 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.14.11",
+    "@syncfusion/ej2-data": "^23.1.36",
+    "@syncfusion/ej2-react-grids": "^23.1.38",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.3.1",
+    "ra-data-simple-rest": "^4.14.4",
+    "ra-language-french": "^4.14.4",
+    "ra-language-spanish": "^1.0.0",
     "react": "^18.2.0",
+    "react-admin": "^4.14.4",
     "react-dom": "^18.2.0",
+    "react-final-form": "^6.5.9",
+    "react-loading-skeleton": "^3.3.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -15,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "client": "npm start --prefix client"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +46,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

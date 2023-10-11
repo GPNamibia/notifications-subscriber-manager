@@ -1,0 +1,19 @@
+
+body {
+    overflow-x: hidden;
+}
+
+.table-scroll-container {
+    overflow-x: auto;
+}
+
+.table-frozen {
+    float: left;
+    width: auto;
+   
+}
+
+.table-scroll {
+    overflow-x: scroll;
+    
+}
