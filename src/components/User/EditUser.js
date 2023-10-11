@@ -51,14 +51,14 @@ const EditUser = (props) => {
               <tr>
                 <td>
                   <TextInput
-                    source="firstname"
+                    source="given_name"
                     label={translate("ra.resources.users.fields.firstName")}
                     validate={validateName}
                   />
                 </td>
                 <td>
                   <TextInput
-                    source="lastname"
+                    source="family_name"
                     label={translate("ra.resources.users.fields.lastName")}
                     validate={validateName}
                   />

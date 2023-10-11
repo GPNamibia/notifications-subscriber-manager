@@ -1,7 +1,9 @@
 {
   "ra": {
     "page": {
-      "list": "EBS ODK Admin Panel"
+      "list": "EBS ODK Admin Panel",
+       "empty": "No users",
+      "invite": "create"
     },
     "resources": {
       "users": {
@@ -24,6 +26,7 @@
           "managePreferences": "Manage Preferences",
           "yourEmailAddress": "Your email address is",
           "updateYourDetails": "Update Your Details",
+          "unsubscribe":"Unsubscribe",
           "unsubscribeDescription": "You will not receive any more emails from this email. You can unsubscribe:",
           "formsSubscribedTo": "Forms subscribed to",
           "authError": "Authentication Error",

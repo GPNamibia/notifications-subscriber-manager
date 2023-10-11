@@ -145,7 +145,9 @@ const Unsubscribe = () => {
           <button onClick={() => changeLanguage("es")}>Español</button>
         </div>
         <h1>{translate("ra.resources.users.fields.managePreferences")}</h1>
-        <p>{translate("ra.resources.users.fields.yourEmailAddress")}: {email}</p>
+        <p>
+          {translate("ra.resources.users.fields.yourEmailAddress")}: {email}
+        </p>
         <div className="dropdown-container">
           <select
             id="department"
@@ -194,12 +196,11 @@ const Unsubscribe = () => {
 
         <button
           className="unsubscribe-button"
-          onClick={handleUpdateUserDetails}>
+          onClick={handleUpdateUserDetails}
+        >
           {translate("ra.resources.users.fields.updateYourDetails")}
         </button>
-        <p>
-          {translate("ra.resources.users.fields.unsubscribeDescription")}:
-        </p>
+        <p>{translate("ra.resources.users.fields.unsubscribeDescription")}:</p>
         <p> {translate("ra.resources.users.fields.formsSubscribedTo")} : </p>
         {subscribedForms.length > 0 ? (
           <ul>
@@ -224,7 +225,7 @@ const Unsubscribe = () => {
         )}
 
         <button className="unsubscribe-button" onClick={handleUnsubscribe}>
-          Unsubscribe
+          {translate("ra.resources.users.fields.unsubscribe")}
         </button>
       </div>
     </div>
