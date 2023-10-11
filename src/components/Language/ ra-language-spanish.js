@@ -1,4 +1,3 @@
-// ra-language-spanish.js
 import spanishMessages from "ra-language-spanish";
 
 const customSpanishMessages = {

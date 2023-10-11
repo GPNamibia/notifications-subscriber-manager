@@ -33,7 +33,7 @@ const Unsubscribe = () => {
         const data = await response.json();
 
         // Check if the user's token matches the one in the URL
-        // if (data.token === userToken) {
+        if (data.token === userToken) {
           setEmail(data.email);
           setSelectedDepartment(data.nomdpto);
           setSelectedDistrict(data.nomdist);
@@ -45,9 +45,9 @@ const Unsubscribe = () => {
           } else {
             console.error("Form data is not an array:", formAssignedToArray);
           }
-        // } else {
-        //   navigate("/error");
-        // }
+        } else {
+          navigate("/error");
+        }
       } catch (error) {
         console.error("Error fetching subscribed forms:", error);
       }
