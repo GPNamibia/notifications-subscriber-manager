@@ -1,47 +1,49 @@
 {
   "ra": {
     "page": {
-      "list": "Panel de administración de EBS ODK"
+      "list": "Panel de administración ODK de VBE",
+      "empty": "Sin usuarios",
+      "invite": "crear"
     },
     "resources": {
       "users": {
-        "name": "Usuario EBS ODK",
+        "name": "Usuario ODK de VBE",
         "fields": {
           "firstName": "Nombre",
           "lastName": "Apellido",
           "username": "Nombre de usuario",
-          "sex": "Sexo",
+          "sex": "Género",
           "formsAssignedTo": "Formularios asignados a",
           "email": "Correo electrónico",
-          "cell": "Celular",
+          "cell": "Número de celular",
           "department": "Departamento",
           "district": "Distrito",
           "establishment": "Establecimiento",
-          "createdAt": "Creado el",
-          "updatedAt": "Actualizado el",
+          "createdAt": "Creado en",
+          "updatedAt": "Actualizado en",
           "editButtonLabel": "Editar",
           "managePreferences": "Administrar preferencias",
-        "yourEmailAddress": "Tu dirección de correo electrónico es",
-        "updateYourDetails": "Actualizar tus datos",
-        "unsubscribeDescription": "No recibirás más correos electrónicos de este correo. Puedes darte de baja:",
-        "formsSubscribedTo": "Formularios suscritos a"
+          "yourEmailAddress": "Tu dirección de correo electrónico es",
+          "updateYourDetails": "Actualiza tus datos",
+          "unsubscribe": "No recibirás más correos electrónicos de este correo. Puedes darte de baja:",
+          "formsSubscribedTo": "Formularios suscritos a"
         }
       },
-    "location": {
-    "nameDep": "Departamento EBS ODK",
-    "nameDis": "Distrito EBS ODK",
-    "nameEst": "Establecimiento EBS ODK",
-    "fields": {
-      "department": "Departamento",
-      "district": "Distrito",
-      "establishment": "Establecimiento",
-      "coddpto": "Código de Departamento",
-      "coddist": "Código de Distrito",
-      "tiposer": "Tipo de Servicio",
-      "createdAt": "Creado en",
-      "updatedAt": "Actualizado en"
-    }
-  }
+      "location": {
+        "nameDep": "Departamento de VBE ODK",
+        "nameDis": "Distrito de EBS ODK",
+        "nameEst": "Establecimiento de EBS ODK",
+        "fields": {
+          "department": "Departamento",
+          "district": "Distrito",
+          "establishment": "Establecimiento",
+          "coddpto": "Código de Departamento",
+          "coddist": "Código de Distrito",
+          "tiposer": "Tipo de Servicio",
+          "createdAt": "Creado en",
+          "updatedAt": "Actualizado en"
+        }
+      }
     },
     "action": {
       "cancel": "Cancelar",
@@ -52,30 +54,30 @@
       "edit": "Editar",
       "export": "Exportar",
       "list": "Lista",
-      "refresh": "Refrescar",
+      "refresh": "Actualizar",
       "save": "Guardar",
-      "undo":"Deshacer"
+      "undo": "Deshacer"
     },
-     "search": {
+    "search": {
       "search": "Buscar por nombre"
     },
-  "custom": {
-    "create": "Crear un usuario", 
-    "edit": "Editar una usuario", 
-    "userDetails": "Detalles del usuario" 
-  },
-  "notification": {
+    "custom": {
+      "create": "Crear un usuario",
+      "edit": "Editar una usuario",
+      "userDetails": "Detalles del usuario"
+    },
+    "notification": {
       "created": "Registro creado exitosamente",
       "updated": "Registro actualizado exitosamente",
       "deleted": "Registro eliminado exitosamente",
       "validation_error": "Error de validación. Por favor, verifique el formulario.",
       "http_error": "Ocurrió un error al procesar su solicitud.",
-      "bad_item": "Elemento no válido. Por favor, verifique sus datos.",
-      "item_does_not_exist": "El elemento no existe.",
+      "bad_item": "Elemento no válido. Por favor, comprueba tus datos.",
+      "item_does_not_exist": "El objeto no existe.",
       "not_authenticated": "No autenticado. Por favor, inicie sesión."
     },
-    "message":{
-        "invalid_form":"Forma invalida"
+    "message": {
+      "invalid_form": "Formulario inválido"
     }
   }
 }

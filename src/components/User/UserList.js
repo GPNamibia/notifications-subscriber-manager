@@ -6,8 +6,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CustomDateField from '../Date/CustomDateField';
 
-
-
 const UserList = (props) => {
   const notify = useNotify();
   const translate = useTranslate();
@@ -18,7 +16,7 @@ const UserList = (props) => {
 
   const UserFilter = (props) => (
     <Filter {...props}>
-      <SearchInput source="firstname" alwaysOn  placeholder={translate("ra.search.search")} />
+      <SearchInput source="given_name" alwaysOn  placeholder={translate("ra.search.search")} />
     </Filter>
   );
 
@@ -29,8 +27,8 @@ const UserList = (props) => {
       <div>
         <List {...props} filters={<UserFilter />} pagination={false}>
           <Datagrid style={datagridStyle}>
-            <TextField source="firstname" label={translate("ra.resources.users.fields.firstName")} />
-            <TextField source="lastname" label={translate("ra.resources.users.fields.lastName")}/>
+            <TextField source="given_name" label={translate("ra.resources.users.fields.firstName")} />
+            <TextField source="family_name" label={translate("ra.resources.users.fields.lastName")}/>
             <TextField source="username" label={translate("ra.resources.users.fields.username")}/>
             <TextField source="sex" label={translate("ra.resources.users.fields.sex")}/>
             <TextField source="form_assigned_to" label={translate("ra.resources.users.fields.formsAssignedTo")}/>

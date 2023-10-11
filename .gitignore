@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/src/components/config/private-config.json
+/src/components/config
 /.pnp
 .pnp.js
 
