@@ -1,8 +1,8 @@
 import React from 'react';
 import './Login.css';
-import { RiLockPasswordFill } from 'react-icons/ri';
 import { useLogin, useNotify } from 'react-admin'; 
 import { useNavigate } from 'react-router-dom';
+const privateConfig = require("../../config/private-config.json");
 
 export default function Login() {
   const [username, setUsername] = React.useState('');
@@ -14,7 +14,7 @@ export default function Login() {
 
   const handleLogin = () => {
     if (username && password) {
-      const request = new Request('http://localhost:8000/authenticate', {
+      const request = new Request(`${privateConfig.development.REACT_APP_API_URL}/authenticate`, {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: new Headers({ 'Content-Type': 'application/json' }),

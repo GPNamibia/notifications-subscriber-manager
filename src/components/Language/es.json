@@ -1,0 +1,81 @@
+{
+  "ra": {
+    "page": {
+      "list": "Panel de administración de EBS ODK"
+    },
+    "resources": {
+      "users": {
+        "name": "Usuario EBS ODK",
+        "fields": {
+          "firstName": "Nombre",
+          "lastName": "Apellido",
+          "username": "Nombre de usuario",
+          "sex": "Sexo",
+          "formsAssignedTo": "Formularios asignados a",
+          "email": "Correo electrónico",
+          "cell": "Celular",
+          "department": "Departamento",
+          "district": "Distrito",
+          "establishment": "Establecimiento",
+          "createdAt": "Creado el",
+          "updatedAt": "Actualizado el",
+          "editButtonLabel": "Editar",
+          "managePreferences": "Administrar preferencias",
+        "yourEmailAddress": "Tu dirección de correo electrónico es",
+        "updateYourDetails": "Actualizar tus datos",
+        "unsubscribeDescription": "No recibirás más correos electrónicos de este correo. Puedes darte de baja:",
+        "formsSubscribedTo": "Formularios suscritos a"
+        }
+      },
+    "location": {
+    "nameDep": "Departamento EBS ODK",
+    "nameDis": "Distrito EBS ODK",
+    "nameEst": "Establecimiento EBS ODK",
+    "fields": {
+      "department": "Departamento",
+      "district": "Distrito",
+      "establishment": "Establecimiento",
+      "coddpto": "Código de Departamento",
+      "coddist": "Código de Distrito",
+      "tiposer": "Tipo de Servicio",
+      "createdAt": "Creado en",
+      "updatedAt": "Actualizado en"
+    }
+  }
+    },
+    "action": {
+      "cancel": "Cancelar",
+      "clone": "Clonar",
+      "confirm": "Confirmar",
+      "create": "Crear",
+      "delete": "Borrar",
+      "edit": "Editar",
+      "export": "Exportar",
+      "list": "Lista",
+      "refresh": "Refrescar",
+      "save": "Guardar",
+      "undo":"Deshacer"
+    },
+     "search": {
+      "search": "Buscar por nombre"
+    },
+  "custom": {
+    "create": "Crear un usuario", 
+    "edit": "Editar una usuario", 
+    "userDetails": "Detalles del usuario" 
+  },
+  "notification": {
+      "created": "Registro creado exitosamente",
+      "updated": "Registro actualizado exitosamente",
+      "deleted": "Registro eliminado exitosamente",
+      "validation_error": "Error de validación. Por favor, verifique el formulario.",
+      "http_error": "Ocurrió un error al procesar su solicitud.",
+      "bad_item": "Elemento no válido. Por favor, verifique sus datos.",
+      "item_does_not_exist": "El elemento no existe.",
+      "not_authenticated": "No autenticado. Por favor, inicie sesión."
+    },
+    "message":{
+        "invalid_form":"Forma invalida"
+    }
+  }
+}

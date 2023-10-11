@@ -10,14 +10,6 @@ export const MyAppBar = () => (
              {/* <TitlePortal /> */}
             {/* <RefreshIconButton /> */}
             </>
-        }
-        // userMenu={
-        //     <UserMenu>
-        //      <TitlePortal variant="body2" component="h3" />
-        //         {/* <SettingsMenuItem /> */}
-        //         {/* <Logout /> */}
-        //     </UserMenu>
-        // }
-        
+        }    
     />
 );

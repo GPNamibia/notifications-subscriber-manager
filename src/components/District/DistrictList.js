@@ -1,19 +1,21 @@
 import React from 'react'
-import {List,Datagrid,TextField,DateField,DeleteButton,EditButton,Filter,TextInput,SearchInput} from 'react-admin';
+import {List,Datagrid,TextField,useTranslate,DeleteButton,EditButton,Filter,TextInput,SearchInput} from 'react-admin';
 import './DistrictList.css';
 import CustomDateField from '../Date/CustomDateField';
 
-const UserFilter = (props) => (
-  <Filter {...props}>
-    <SearchInput source="nomdist" alwaysOn />
-  </Filter>
-);
 
 const datagridStyle = {
     backgroundColor: '#f0f0f0'
   };
 
 const DistrictList = (props) => {
+ const translate = useTranslate();
+
+  const UserFilter = (props) => (
+  <Filter {...props}>
+    <SearchInput source="nomdist" alwaysOn placeholder={translate("ra.search.search")} />
+  </Filter>
+);
   
   return (
      <div>
@@ -21,11 +23,11 @@ const DistrictList = (props) => {
        <List {...props} filters={<UserFilter />} pagination={false} perPage={5}>
       <Datagrid style={datagridStyle}>
         {/* <TextField source="id"/> */}
-        <TextField source="coddpto" />
-        <TextField source="coddist" />
-         <TextField source="nomdist" />
-        <CustomDateField source="createdAt" label="Created At" />
-        <CustomDateField source="updatedAt" label="Updated At" />
+        <TextField source="coddpto" label={translate("ra.resources.location.fields.coddpto")} />
+        <TextField source="coddist" label={translate("ra.resources.location.fields.coddist")}/>
+         <TextField source="nomdist" label={translate("ra.resources.location.fields.district")}/>
+         <CustomDateField source="createdAt" label={translate("ra.resources.users.fields.createdAt")} />
+        <CustomDateField source="updatedAt" label={translate("ra.resources.users.fields.updatedAt")} />
       </Datagrid>
     </List>
      </div>

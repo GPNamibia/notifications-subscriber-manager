@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Unsubscribe.css";
-import { useParams } from "react-router-dom";
-import { useLogin, useNotify } from "react-admin";
+import { useParams, useLocation,useNavigate} from "react-router-dom";
+import { useLogin, useNotify, useRefresh, useTranslate,useSetLocale } from "react-admin";
+const privateConfig = require("../config/private-config.json");
 
 const Unsubscribe = () => {
   const [subscribedForms, setSubscribedForms] = useState([]);
@@ -15,20 +16,38 @@ const Unsubscribe = () => {
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [selectedEstablishment, setSelectedEstablishment] = useState("");
   const notify = useNotify();
+  const refresh = useRefresh();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const userToken = new URLSearchParams(location.search).get("user_id");
+  const translate = useTranslate();
+  const setLocale = useSetLocale(); 
+ 
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/user/${id}`);
+        const response = await fetch(
+          `${privateConfig.development.REACT_APP_API_URL}/user/${id}`
+        );
         const data = await response.json();
-        setEmail(data.email);
 
-        const formAssignedToArray = data.form_assigned_to.split(",");
-        if (Array.isArray(formAssignedToArray)) {
-          setSubscribedForms(formAssignedToArray);
-        } else {
-          console.error("Form data is not an array:", formAssignedToArray);
-        }
+        // Check if the user's token matches the one in the URL
+        // if (data.token === userToken) {
+          setEmail(data.email);
+          setSelectedDepartment(data.nomdpto);
+          setSelectedDistrict(data.nomdist);
+          setSelectedEstablishment(data.nomserv);
+
+          const formAssignedToArray = data.form_assigned_to.split(",");
+          if (Array.isArray(formAssignedToArray)) {
+            setSubscribedForms(formAssignedToArray);
+          } else {
+            console.error("Form data is not an array:", formAssignedToArray);
+          }
+        // } else {
+        //   navigate("/error");
+        // }
       } catch (error) {
         console.error("Error fetching subscribed forms:", error);
       }
@@ -38,19 +57,21 @@ const Unsubscribe = () => {
       try {
         // Fetch department data
         const departmentResponse = await fetch(
-          "http://localhost:8000/departments"
+          `${privateConfig.development.REACT_APP_API_URL}/departments`
         );
         const departmentData = await departmentResponse.json();
         setDepartments(departmentData);
 
         // Fetch district data
-        const districtResponse = await fetch("http://localhost:8000/districts");
+        const districtResponse = await fetch(
+          `${privateConfig.development.REACT_APP_API_URL}/districts`
+        );
         const districtData = await districtResponse.json();
         setDistricts(districtData);
 
         // Fetch establishment data
         const establishmentResponse = await fetch(
-          "http://localhost:8000/establishments"
+          `${privateConfig.development.REACT_APP_API_URL}/establishments`
         );
         const establishmentData = await establishmentResponse.json();
         setEstablishments(establishmentData);
@@ -63,42 +84,39 @@ const Unsubscribe = () => {
     fetchDropdownData();
   }, [id]);
 
-//   const toggleForm = (formName) => {
-//     setSelectedForms((prevState) =>
-//       prevState.includes(formName)
-//         ? prevState.filter((form) => form !== formName)
-//         : [...prevState, formName]
-//     );
-//   };
+  // handleFormSelection function
+  const handleFormSelection = (formName) => {
+    if (selectedForms.includes(formName)) {
+      setSelectedForms(selectedForms.filter((name) => name !== formName));
+    } else {
+      setSelectedForms([...selectedForms, formName]);
+    }
+  };
 
   const handleUnsubscribe = async () => {
     try {
-      // Send a request to unsubscribe from the selected forms
-      await fetch(`http://localhost:8000/unsubscribe/${id}`, {
-        method: "DELETE",
-        body: JSON.stringify({ forms: selectedForms }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
+      await fetch(
+        `${privateConfig.development.REACT_APP_API_URL}/unsubscribe/${id}`,
+        {
+          method: "DELETE",
+          body: JSON.stringify({ forms: selectedForms.join(", ")} ),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       // Handle success and update UI as needed
       notify("Unsubscribed successfully!");
+      refresh();
     } catch (error) {
       notify("Error unsubscribing:", error);
     }
   };
 
   const handleUpdateUserDetails = async () => {
-    if (!selectedDepartment || !selectedDistrict || !selectedEstablishment) {
-      notify(
-        "Please select values for department, district, and establishment."
-      );
-      return;
-    }
     try {
       // Send a request to update user details
-      await fetch(`http://localhost:8000/user/${id}`, {
+      await fetch(`${privateConfig.development.REACT_APP_API_URL}/user/${id}`, {
         method: "PUT",
         body: JSON.stringify({
           nomdpto: selectedDepartment,
@@ -115,18 +133,26 @@ const Unsubscribe = () => {
     }
   };
 
+  const changeLanguage = (locale) => {
+    setLocale(locale);
+  };
+
   return (
     <div className="unsubscribe-container">
       <div className="container">
-        <h1>Unsubscribe</h1>
-        <p>Your email address: {email}</p>
+        <div className="language-toggle">
+          <button onClick={() => changeLanguage("en")}>English</button>
+          <button onClick={() => changeLanguage("es")}>Español</button>
+        </div>
+        <h1>{translate("ra.resources.users.fields.managePreferences")}</h1>
+        <p>{translate("ra.resources.users.fields.yourEmailAddress")}: {email}</p>
         <div className="dropdown-container">
           <select
             id="department"
             value={selectedDepartment}
             onChange={(e) => setSelectedDepartment(e.target.value)}
           >
-            <option value="">Select Department</option>
+            <option value="">{selectedDepartment}</option>
             {departments.map((department) => (
               <option key={department.id} value={department.nomdpto}>
                 {department.nomdpto}
@@ -141,7 +167,7 @@ const Unsubscribe = () => {
             value={selectedDistrict}
             onChange={(e) => setSelectedDistrict(e.target.value)}
           >
-            <option value="">Select District</option>
+            <option value="">{selectedDistrict}</option>
             {districts.map((district) => {
               return (
                 <option key={district.id} value={district.nomdist}>
@@ -151,14 +177,13 @@ const Unsubscribe = () => {
             })}
           </select>
         </div>
-
         <div className="dropdown-container">
           <select
             id="establishment"
             value={selectedEstablishment}
             onChange={(e) => setSelectedEstablishment(e.target.value)}
           >
-            <option value="">Select Establishment</option>
+            <option value="">{selectedEstablishment}</option>
             {establishments.map((establishment) => (
               <option key={establishment.id} value={establishment.nomserv}>
                 {establishment.nomserv}
@@ -166,21 +191,32 @@ const Unsubscribe = () => {
             ))}
           </select>
         </div>
+
         <button
           className="unsubscribe-button"
-          onClick={handleUpdateUserDetails}
-        >
-          Update Your Details
+          onClick={handleUpdateUserDetails}>
+          {translate("ra.resources.users.fields.updateYourDetails")}
         </button>
         <p>
-          You will not receive any more emails from this email.You can
-          unsubscribe:
+          {translate("ra.resources.users.fields.unsubscribeDescription")}:
         </p>
-        <p>Forms subscribed to</p>
+        <p> {translate("ra.resources.users.fields.formsSubscribedTo")} : </p>
         {subscribedForms.length > 0 ? (
           <ul>
             {subscribedForms.map((formName) => (
-              <li key={formName}>{formName}</li>
+              <li key={formName}>
+                <label>
+                  <input
+                    type="checkbox"
+                    id={formName}
+                    name={formName}
+                    value={formName}
+                    checked={selectedForms.includes(formName)}
+                    onChange={() => handleFormSelection(formName)}
+                  />
+                  {formName}
+                </label>
+              </li>
             ))}
           </ul>
         ) : (
