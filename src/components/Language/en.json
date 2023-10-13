@@ -1,0 +1,87 @@
+{
+  "ra": {
+    "page": {
+      "list": "EBS ODK Admin Panel",
+       "empty": "No users",
+      "invite": "create"
+    },
+    "resources": {
+      "users": {
+        "name": "EBS ODK User",
+        "fields": {
+          "firstName": "First Name",
+          "lastName": "Last Name",
+          "username": "Username",
+          "sex": "Sex",
+          "formsAssignedTo": "Forms Assigned To",
+          "email": "Email",
+          "cell": "Cell",
+          "department": "Department",
+          "district": "District",
+          "establishment": "Establishment",
+          "createdAt": "Created At",
+          "updatedAt": "Updated At",
+          "editButtonLabel": "Edit",
+          "exportButtonLabel": "Export",
+          "managePreferences": "Manage Preferences",
+          "yourEmailAddress": "Your email address is",
+          "updateYourDetails": "Update Your Details",
+          "unsubscribe":"Unsubscribe",
+          "unsubscribeDescription": "You will not receive any more emails from this email. You can unsubscribe:",
+          "formsSubscribedTo": "Forms subscribed to",
+          "authError": "Authentication Error",
+          "errorMessage": "Sorry, an error occurred. Please try again later."
+        }
+      },
+      "location": {
+        "nameDep": "EBS ODK Department",
+        "nameDis": "EBS ODK District",
+        "nameEst": "EBS ODK Establishment",
+        "fields": {
+          "department": "Department",
+          "district": "District",
+          "establishment": "Establishment",
+          "coddpto": "Department Code",
+          "coddist": "District Code",
+          "tiposer": "Tiposerv",
+          "createdAt": "Created At",
+          "updatedAt": "Updated At"
+        }
+      }
+    },
+    "action": {
+      "cancel": "Cancel",
+      "clone": "Clone",
+      "confirm": "Confirm",
+      "create": "Create",
+      "delete": "Delete",
+      "edit": "Edit",
+      "export": "Export",
+      "list": "List",
+      "refresh": "Refresh",
+      "save": "Save",
+      "undo": "Undo"
+    },
+    "search": {
+      "search": "Search by Name"
+    },
+    "custom": {
+    "create": "Create a User", 
+    "edit": "Edit a User", 
+    "userDetails": "User Details" 
+  },
+   "notification": {
+      "created": "Record created successfully",
+      "updated": "Record updated successfully",
+      "deleted": "Record deleted successfully",
+      "validation_error": "Validation error. Please check the form.",
+      "http_error": "An error occurred while processing your request.",
+      "bad_item": "Invalid item. Please check your data.",
+      "item_does_not_exist": "Item does not exist.",
+      "not_authenticated": "Not authenticated. Please sign in."
+    },
+    "message":{
+        "invalid_form":"Invalid form"
+    }
+}
+}

@@ -1,0 +1,83 @@
+{
+  "ra": {
+    "page": {
+      "list": "Panel de administración ODK de VBE",
+      "empty": "Sin usuarios",
+      "invite": "crear"
+    },
+    "resources": {
+      "users": {
+        "name": "Usuario ODK de VBE",
+        "fields": {
+          "firstName": "Nombre",
+          "lastName": "Apellido",
+          "username": "Nombre de usuario",
+          "sex": "Género",
+          "formsAssignedTo": "Formularios asignados a",
+          "email": "Correo electrónico",
+          "cell": "Número de celular",
+          "department": "Departamento",
+          "district": "Distrito",
+          "establishment": "Establecimiento",
+          "createdAt": "Creado en",
+          "updatedAt": "Actualizado en",
+          "editButtonLabel": "Editar",
+          "managePreferences": "Administrar preferencias",
+          "yourEmailAddress": "Tu dirección de correo electrónico es",
+          "updateYourDetails": "Actualiza tus datos",
+          "unsubscribe": "No recibirás más correos electrónicos de este correo. Puedes darte de baja:",
+          "formsSubscribedTo": "Formularios suscritos a"
+        }
+      },
+      "location": {
+        "nameDep": "Departamento de VBE ODK",
+        "nameDis": "Distrito de EBS ODK",
+        "nameEst": "Establecimiento de EBS ODK",
+        "fields": {
+          "department": "Departamento",
+          "district": "Distrito",
+          "establishment": "Establecimiento",
+          "coddpto": "Código de Departamento",
+          "coddist": "Código de Distrito",
+          "tiposer": "Tipo de Servicio",
+          "createdAt": "Creado en",
+          "updatedAt": "Actualizado en"
+        }
+      }
+    },
+    "action": {
+      "cancel": "Cancelar",
+      "clone": "Clonar",
+      "confirm": "Confirmar",
+      "create": "Crear",
+      "delete": "Borrar",
+      "edit": "Editar",
+      "export": "Exportar",
+      "list": "Lista",
+      "refresh": "Actualizar",
+      "save": "Guardar",
+      "undo": "Deshacer"
+    },
+    "search": {
+      "search": "Buscar por nombre"
+    },
+    "custom": {
+      "create": "Crear un usuario",
+      "edit": "Editar una usuario",
+      "userDetails": "Detalles del usuario"
+    },
+    "notification": {
+      "created": "Registro creado exitosamente",
+      "updated": "Registro actualizado exitosamente",
+      "deleted": "Registro eliminado exitosamente",
+      "validation_error": "Error de validación. Por favor, verifique el formulario.",
+      "http_error": "Ocurrió un error al procesar su solicitud.",
+      "bad_item": "Elemento no válido. Por favor, comprueba tus datos.",
+      "item_does_not_exist": "El objeto no existe.",
+      "not_authenticated": "No autenticado. Por favor, inicie sesión."
+    },
+    "message": {
+      "invalid_form": "Formulario inválido"
+    }
+  }
+}
