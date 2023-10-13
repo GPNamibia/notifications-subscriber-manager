@@ -22,11 +22,15 @@
           "createdAt": "Creado en",
           "updatedAt": "Actualizado en",
           "editButtonLabel": "Editar",
+          "exportButtonLabel": "Exportar",
           "managePreferences": "Administrar preferencias",
           "yourEmailAddress": "Tu dirección de correo electrónico es",
           "updateYourDetails": "Actualiza tus datos",
-          "unsubscribe": "No recibirás más correos electrónicos de este correo. Puedes darte de baja:",
-          "formsSubscribedTo": "Formularios suscritos a"
+          "unsubscribe": "Darse de baja",
+          "unsubscribeDescription": "No recibirás más correos electrónicos de este correo. Puedes darte de baja:",
+          "formsSubscribedTo": "Formularios suscritos a",
+          "authError": "Error de autenticación",
+          "errorMessage": "Lo sentimos, se ha producido un error. Vuelve a intentarlo más tarde."
         }
       },
       "location": {

@@ -7,7 +7,7 @@ const privateConfig = require("../config/private-config.json");
 const Unsubscribe = () => {
   const [subscribedForms, setSubscribedForms] = useState([]);
   const [selectedForms, setSelectedForms] = useState([]);
-  const { id } = useParams();
+  const { id} = useParams();
   const [email, setEmail] = useState("");
   const [departments, setDepartments] = useState([]);
   const [districts, setDistricts] = useState([]);
@@ -28,12 +28,12 @@ const Unsubscribe = () => {
     const fetchUserData = async () => {
       try {
         const response = await fetch(
-          `${privateConfig.development.REACT_APP_API_URL}/user/${id}`
+          `${privateConfig.development.REACT_APP_API_URL}/user/token/${id}`
         );
         const data = await response.json();
 
         // Check if the user's token matches the one in the URL
-        if (data.token === userToken) {
+        if (data.token === id) {
           setEmail(data.email);
           setSelectedDepartment(data.nomdpto);
           setSelectedDistrict(data.nomdist);
@@ -96,10 +96,10 @@ const Unsubscribe = () => {
   const handleUnsubscribe = async () => {
     try {
       await fetch(
-        `${privateConfig.development.REACT_APP_API_URL}/unsubscribe/${id}`,
+        `${privateConfig.development.REACT_APP_API_URL}/unsubscribe/token/${id}`,
         {
           method: "DELETE",
-          body: JSON.stringify({ forms: selectedForms.join(", ")} ),
+          body: JSON.stringify({ forms: selectedForms.join(", ") }),
           headers: {
             "Content-Type": "application/json",
           },
@@ -116,17 +116,20 @@ const Unsubscribe = () => {
   const handleUpdateUserDetails = async () => {
     try {
       // Send a request to update user details
-      await fetch(`${privateConfig.development.REACT_APP_API_URL}/user/${id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          nomdpto: selectedDepartment,
-          nomdist: selectedDistrict,
-          nomserv: selectedEstablishment,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await fetch(
+        `${privateConfig.development.REACT_APP_API_URL}/user/token/${id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            nomdpto: selectedDepartment,
+            nomdist: selectedDistrict,
+            nomserv: selectedEstablishment,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       notify("User details updated successfully!");
     } catch (error) {
       notify("Error updating user details:", error);
